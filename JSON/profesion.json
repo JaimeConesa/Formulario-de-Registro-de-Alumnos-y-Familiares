@@ -1,0 +1,8 @@
+{
+    "profesiones": [
+      { "id": 1, "nombre": "Abogado" },
+      { "id": 2, "nombre": "Arquitecto" },
+      { "id": 3, "nombre": "Ingeniero" }
+    ]
+  }
+  

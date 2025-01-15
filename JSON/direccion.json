@@ -1,0 +1,7 @@
+{
+    "direccion": [
+      { "pais": "España", "ciudad": "Madrid", "poblacion": "Centro" },
+      { "pais": "España", "ciudad": "Barcelona", "poblacion": "Eixample" }
+    ]
+  }
+  

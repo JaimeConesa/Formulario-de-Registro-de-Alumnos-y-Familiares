@@ -1,0 +1,8 @@
+{
+    "ciudades": [
+      { "id": 1, "nombre": "Madrid" },
+      { "id": 2, "nombre": "Barcelona" },
+      { "id": 3, "nombre": "Valencia" }
+    ]
+  }
+  

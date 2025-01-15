@@ -1,0 +1,8 @@
+{
+    "alergias": [
+      { "id": 1, "nombre": "Polen" },
+      { "id": 2, "nombre": "Ácaros del polvo" },
+      { "id": 3, "nombre": "Leche" }
+    ]
+  }
+  
