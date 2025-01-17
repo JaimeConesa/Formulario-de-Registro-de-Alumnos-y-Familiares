@@ -6,7 +6,7 @@ $background-color: #ffffff;
 $error-color: #e74c3c;
 $border-radius: 5px;
 $font-family: "Roboto", sans-serif;
-
+$background-image-url: "url('path_to_your_image.jpg')";
 // Estilos globales
 body {
   font-family: $font-family;
@@ -15,8 +15,14 @@ body {
   padding: 20px;
   color: $text-color;
   line-height: 1.6;
+  background-color: #4a90e2;
+  background-image: url(https://images.unsplash.com/photo-1699891730676-037bed3c1bed?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHByZXNlbnRhdGlvbiUyMGJhY2tncm91bmR8ZW58MHx8MHx8fDA%3D); // Nueva imagen de fondo
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
 }
 
+// Estilos para el contenedor del formulario
 form {
   max-width: 800px;
   margin: 0 auto;
@@ -25,6 +31,7 @@ form {
   border-radius: $border-radius;
   padding: 20px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  opacity: 0.9; // Para que el formulario se vea ligeramente translúcido
 }
 
 // Estilos de los fieldsets y legendas
@@ -33,6 +40,7 @@ fieldset {
   border-radius: $border-radius;
   padding: 15px;
   margin-bottom: 20px;
+  background-color: lighten($background-color, 5%);
 
   legend {
     padding: 0 10px;
@@ -47,6 +55,8 @@ label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
+  font-size: 1rem;
+  color: $text-color;
 }
 
 // Inputs y selects

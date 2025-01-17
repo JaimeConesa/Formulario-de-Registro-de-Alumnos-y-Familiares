@@ -1,37 +1,56 @@
-class Alumno{
-    constructor(nombre,apellidos,nif,lenguaMaterna,idiomasConocidos,familiar,direccion,datosAcademicos,infoMedica){
-        this.nombre=nombre;
-        this.apellidos=apellidos;
-        this.nif=nif;
-        this.lenguaMaterna=lenguaMaterna;
-        this.idiomasConocidos=idiomasConocidos;
-        this.familiar=familiar;
-        this.direccion=direccion;
-        this.datosAcademicos=datosAcademicos;
-        this.infoMedica=infoMedica;
-
+// Clase Alumno que almacena los datos de un alumno
+class Alumno {
+    /**
+     * Constructor para crear una instancia de Alumno.
+     * 
+     * @param {string} nombre - El nombre del alumno.
+     * @param {string} apellidos - Los apellidos del alumno.
+     * @param {string} nif - El NIF del alumno.
+     * @param {string} lenguaMaterna - La lengua materna del alumno.
+     * @param {Array} idiomasConocidos - Idiomas conocidos por el alumno.
+     * @param {Object} familiar - Información de un familiar del alumno.
+     * @param {Object} direccion - Dirección del alumno.
+     * @param {Object} datosAcademicos - Información académica del alumno.
+     * @param {Object} infoMedica - Información médica del alumno.
+     */
+    constructor(nombre, apellidos, nif, lenguaMaterna, idiomasConocidos, familiar, direccion, datosAcademicos, infoMedica) {
+        this.nombre = nombre;
+        this.apellidos = apellidos;
+        this.nif = nif;
+        this.lenguaMaterna = lenguaMaterna;
+        this.idiomasConocidos = idiomasConocidos;
+        this.familiar = familiar;
+        this.direccion = direccion;
+        this.datosAcademicos = datosAcademicos;
+        this.infoMedica = infoMedica;
     }
 }
+
+// Clase AlumnoBuilder que implementa el patrón Builder para crear un objeto Alumno
 class AlumnoBuilder {
     constructor() {
-        this.reset();
+        this.reset(); // Inicializa los atributos a valores por defecto
     }
 
+    /**
+     * Restablece todos los atributos del builder a valores nulos o predeterminados.
+     */
     reset() {
         this.nombre = null;
         this.apellidos = null;
         this.nif = null;
         this.lenguaMaterna = null;
         this.idiomasConocidos = []; // Inicializado como un array vacío
-        this.familiar = null; // Puede ser un objeto complejo o una lista
-        this.direccion = null; // Similar al atributo `familiar`
-        this.datosAcademicos = null; // Objeto vacío si tiene subatributos
-        this.infoMedica = null; // Inicializar en null o un objeto vacío
+        this.familiar = null;
+        this.direccion = null;
+        this.datosAcademicos = null;
+        this.infoMedica = null;
     }
 
+    // Métodos para establecer los atributos del alumno (permite encadenamiento de métodos)
     setNombre(nombre) {
         this.nombre = nombre;
-        return this; // Permitir el encadenamiento de métodos
+        return this; // Permite encadenamiento
     }
 
     setApellidos(apellidos) {
@@ -74,6 +93,11 @@ class AlumnoBuilder {
         return this;
     }
 
+    /**
+     * Construye un objeto Alumno con los datos establecidos en el builder.
+     * 
+     * @returns {Alumno} - Una nueva instancia de Alumno.
+     */
     build() {
         const alumno = new Alumno(
             this.nombre,
@@ -86,20 +110,23 @@ class AlumnoBuilder {
             this.datosAcademicos,
             this.infoMedica
         );
-        this.reset(); // Resetea el builder después de construir el objeto
+        this.reset(); // Resetea el builder después de crear el objeto
         return alumno;
     }
 }
+
+// Evento que se ejecuta cuando el documento HTML ha sido completamente cargado
 document.addEventListener("DOMContentLoaded", () => {
-    const form = document.getElementById("form-alumno");
+    const form = document.getElementById("form-alumno"); // Obtiene el formulario
 
+    // Evento para manejar el envío del formulario
     form.addEventListener("submit", (e) => {
-        e.preventDefault(); // Evitar el envío del formulario por defecto
+        e.preventDefault(); // Evita el comportamiento por defecto de enviar el formulario
 
-        // Crear instancia de AlumnoBuilder
+        // Crear una instancia de AlumnoBuilder
         const builder = new AlumnoBuilder();
 
-        // Recopilar datos del formulario
+        // Recopilar datos del formulario y asignarlos al builder
         const alumno = builder
             .setNombre(document.getElementById("nombre-alumno").value)
             .setApellidos(document.getElementById("apellidos-alumno").value)
@@ -115,9 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 apellidos: document.getElementById("apellidos-familiar").value,
                 nif: document.getElementById("nif-familiar").value,
                 profesion: document.getElementById("profesion").value,
-                ciudadNacimiento: document.querySelector(
-                    ".ciudad-nacimiento"
-                ).value,
+                ciudadNacimiento: document.querySelector(".ciudad-nacimiento").value,
                 lenguaMaterna: document.getElementById("lengua-materna-familiar").value,
                 idiomasConocidos: Array.from(
                     document.getElementById("idiomas-conocidos-familiar").selectedOptions
@@ -136,9 +161,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 idiomasEstudiados: Array.from(
                     document.getElementById("idiomas-estudiados").selectedOptions
                 ).map((opt) => opt.value),
-                nivelEstudioSolicitado: document.getElementById(
-                    "nivel-estudio-solicitado"
-                ).value,
+                nivelEstudioSolicitado: document.getElementById("nivel-estudio-solicitado").value,
             })
             .setInfoMedica({
                 alergias: Array.from(
@@ -148,13 +171,15 @@ document.addEventListener("DOMContentLoaded", () => {
             })
             .build();
 
-        // Mostrar resumen del alumno (opcional)
+        // Mostrar el resumen del alumno
         mostrarResumen(alumno);
     });
 });
 
 /**
- * Función para mostrar el resumen del alumno.
+ * Muestra un resumen del alumno en un modal.
+ * 
+ * @param {Alumno} alumno - El objeto Alumno con los datos a mostrar.
  */
 function mostrarResumen(alumno) {
     const resumen = `
@@ -191,28 +216,30 @@ function mostrarResumen(alumno) {
         <p><strong>Medicación Actual:</strong> ${alumno.infoMedica.medicacionActual}</p>
     `;
 
+    // Crear y mostrar el modal con el resumen
     const modal = document.createElement("div");
     modal.innerHTML = resumen;
-    modal.style.display = "block"; // Opcional: Estilizar el modal como prefieras
-    modal.style.padding = "20px";
+    modal.style.display = "block";
+    modal.style.padding = "20px"; 
     modal.style.backgroundColor = "#fff";
     modal.style.boxShadow = "0 4px 6px rgba(0, 0, 0, 0.1)";
     modal.style.position = "fixed";
     modal.style.top = "50%";
     modal.style.left = "50%";
-    modal.style.width = "300px"; // Establecer un ancho más pequeño
-    modal.style.maxWidth = "90%"; // Asegura que no se salga de la pantalla
+    modal.style.width = "300px";
+    modal.style.maxWidth = "90%";
+    modal.style.fontSize = "12px";
     modal.style.transform = "translate(-50%, -50%)";
-    modal.style.fontSize = "12px"; // Establecer un tamaño de texto más pequeño
-    modal.style.lineHeight = "1.4"; // Espaciado de línea más compacto
     modal.style.zIndex = "1000";
-    const closeButton = document.createElement("button");
-    closeButton.textContent = "Cerrar";
-    closeButton.style.marginTop = "10px";
-    closeButton.addEventListener("click", () => {
-        modal.remove(); // Elimina el modal al hacer clic en cerrar
+
+    // Botón para cerrar el modal
+    const btnClose = document.createElement("button");
+    btnClose.innerText = "Cerrar";
+    btnClose.style.marginTop = "10px";
+    btnClose.addEventListener("click", () => {
+        modal.style.display = "none"; // Cierra el modal
     });
 
-    modal.appendChild(closeButton);
-    document.body.appendChild(modal);
+    modal.appendChild(btnClose);
+    document.body.appendChild(modal); // Agrega el modal al DOM
 }

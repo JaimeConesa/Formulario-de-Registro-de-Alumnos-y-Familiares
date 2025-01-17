@@ -108,7 +108,6 @@ function validarFormulario() {
         valido = false;
     }
 
-
     // Validación de código postal
     const codigoPostal = document.getElementById("codigo-postal").value;
     if (!/^\d{5}$/.test(codigoPostal)) {
