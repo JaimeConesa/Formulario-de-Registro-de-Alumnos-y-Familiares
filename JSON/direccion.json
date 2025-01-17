@@ -1,7 +1,10 @@
 {
-    "direccion": [
-      { "pais": "España", "ciudad": "Madrid", "poblacion": "Centro" },
-      { "pais": "España", "ciudad": "Barcelona", "poblacion": "Eixample" }
-    ]
-  }
-  
+  "direccion": [
+    { "pais": "España", "ciudad": "Madrid", "poblacion": "Centro" },
+    { "pais": "España", "ciudad": "Barcelona", "poblacion": "Eixample" },
+    { "pais": "Japón", "ciudad": "Katobukya", "poblacion": "Yamagashi" },
+    { "pais": "España", "ciudad": "Sevilla", "poblacion": "Triana" },
+    { "pais": "España", "ciudad": "Valencia", "poblacion": "Ruzafa" },
+    { "pais": "México", "ciudad": "Ciudad de México", "poblacion": "Condesa" }
+  ]
+}

@@ -1,29 +1,13 @@
 {
-    "estudios": [
-      {
-        "id": 1,
-        "nombre": "Primaria"
-      },
-      {
-        "id": 2,
-        "nombre": "Secundaria"
-      },
-      {
-        "id": 3,
-        "nombre": "Bachillerato"
-      },
-      {
-        "id": 4,
-        "nombre": "Grado Universitario"
-      },
-      {
-        "id": 5,
-        "nombre": "Máster"
-      },
-      {
-        "id": 6,
-        "nombre": "Doctorado"
-      }
-    ]
-  }
-  
+  "estudios": [
+    { "id": 1, "nombre": "Primaria" },
+    { "id": 2, "nombre": "Secundaria" },
+    { "id": 3, "nombre": "Bachillerato" },
+    { "id": 4, "nombre": "Grado Universitario" },
+    { "id": 5, "nombre": "Máster" },
+    { "id": 6, "nombre": "Doctorado" },
+    { "id": 7, "nombre": "FP (Formación Profesional)" },
+    { "id": 8, "nombre": "Especialización Técnica" },
+    { "id": 9, "nombre": "Educación Infantil" }
+  ]
+}

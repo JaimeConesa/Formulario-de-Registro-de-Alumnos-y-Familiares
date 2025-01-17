@@ -1,8 +1,11 @@
 {
-    "alergias": [
-      { "id": 1, "nombre": "Polen" },
-      { "id": 2, "nombre": "Ácaros del polvo" },
-      { "id": 3, "nombre": "Leche" }
-    ]
-  }
-  
+  "alergias": [
+    { "id": 1, "nombre": "Polen" },
+    { "id": 2, "nombre": "Ácaros del polvo" },
+    { "id": 3, "nombre": "Leche" },
+    { "id": 4, "nombre": "Cacahuetes" },
+    { "id": 5, "nombre": "Huevo" },
+    { "id": 6, "nombre": "Mariscos" },
+    { "id": 7, "nombre": "Látex" }
+  ]
+}

@@ -1,8 +1,12 @@
 {
-    "idiomas": [
-      { "id": 1, "nombre": "Español" },
-      { "id": 2, "nombre": "Inglés" },
-      { "id": 3, "nombre": "Francés" }
-    ]
-  }
-  
+  "idiomas": [
+    { "id": 1, "nombre": "Español" },
+    { "id": 2, "nombre": "Inglés" },
+    { "id": 3, "nombre": "Francés" },
+    { "id": 4, "nombre": "Alemán" },
+    { "id": 5, "nombre": "Italiano" },
+    { "id": 6, "nombre": "Portugués" },
+    { "id": 7, "nombre": "Chino" },
+    { "id": 8, "nombre": "Japonés" }
+  ]
+}
