@@ -4,155 +4,131 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="/JavaScript/Formulario.js"></script>
+    <title>Formulario Avanzado</title>
+    <script src="../JS/Formulario.js" defer></script>
+    <link rel="stylesheet" href="../SCSS/Estilo.css">
 </head>
 
 <body>
-    <form>
-        <div id="Alumno">
-            <fieldset>
-                <legend>Datos del Alumno</legend>
-                <label for="nombre-alumno">Introduzca su nombre...</label>
-                <input type="text" name="nombre-alumno" id="nombre-alumno" required>
-                <label for="apellidos">Introduzca sus apellidos...</label>
-                <input type="text" name="apellidos" id="apellidos" required>
-                <label for="NIF">Introduzca su NIF...</label>
-                <input type="text" name="NIF" id="NIF" required>
-                <label for="lengua-materna">Lengua materna...</label>
-                <select name="lengua-materna" id="lengua-materna" required>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+    <form id="form-alumno">
+        <!-- Datos del Alumno -->
+        <fieldset>
+            <legend>Datos del Alumno</legend>
+            <label for="nombre-alumno">Nombre:</label>
+            <input type="text" id="nombre-alumno" name="nombre-alumno" required>
+
+            <label for="apellidos-alumno">Apellidos:</label>
+            <input type="text" id="apellidos-alumno" name="apellidos-alumno" required>
+
+            <label for="nif-alumno">NIF:</label>
+            <input type="text" id="nif-alumno" name="nif-alumno" required>
+
+            <label for="lengua-materna-alumno">Lengua Materna (Alumno):</label>
+            <select id="lengua-materna-alumno" name="lengua-materna" required>
+                <option value="" disabled selected>Seleccione una opción</option>
+            </select>
+
+            <label for="idiomas-conocidos-alumno">Idiomas Conocidos (Alumno):</label>
+            <select id="idiomas-conocidos-alumno" name="idiomas-conocidos[]" multiple required>
+                <option value="" disabled>Seleccione uno o más idiomas</option>
+            </select>
+        </fieldset>
+
+        <!-- Familiares Asociados -->
+        <fieldset>
+            <legend>Familiares Asociados</legend>
+            <div class="familiar">
+                <label for="nombre-familiar">Nombre:</label>
+                <input type="text" id="nombre-familiar" name="nombre-familiar" required>
+
+                <label for="apellidos-familiar">Apellidos:</label>
+                <input type="text" id="apellidos-familiar" name="apellidos-familiar" required>
+
+                <label for="nif-familiar">NIF:</label>
+                <input type="text" id="nif-familiar" name="nif-familiar" required>
+
+                <label for="profesion">Profesión:</label>
+                <select id="profesion" name="profesion" required>
+                    <option value="" disabled selected>Seleccione una profesión</option>
                 </select>
-                <label for="idiomas-conocidos">Idiomas conocidos...</label>
-                <select name="idiomas-conocidos" id="idiomas-conocidos" required>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+
+                <label for="ciudad-nacimiento-familiar">Ciudad de Nacimiento:</label>
+                <select class="ciudad-nacimiento" data-tipo="familiar" name="ciudad-nacimiento-familiar" required>
+                    <option value="" disabled selected>Seleccione una ciudad</option>
                 </select>
-            </fieldset>
-        </div>
-        <div id="familiares">
-            <fieldset>
-                <legend>Datos de los familiares</legend>
-                <div id="Tutor1">
-                    <label for="nombre-tutor1">Nombre del tutor...</label>
-                    <input type="text" name="nombre-tutor1" id="nombre-tutor1" required>
-                    <label for="apellidos-tutor1">Introduzca sus apellidos...</label>
-                    <input type="text" name="apellidos-tutor1" id="apellidos-tutor1" required>
-                    <label for="NIF">Introduzca su NIF...</label>
-                    <input type="text" name="NIF" id="NIF" required>
-                    <label for="profesion">Profesión...</label>
-                    <select name="profesion" id="profesion">
 
-                    </select>
-                    <label for="ciudad-nacimiento">Ciudad de nacimiento...</label>
-                    <select name="ciudad-nacimiento" id="ciudad-nacimiento">
+                <label for="lengua-materna-familiar">Lengua Materna (Familiar):</label>
+                <select id="lengua-materna-familiar" name="lengua-materna" required>
+                    <option value="" disabled selected>Seleccione una lengua</option>
+                </select>
+                
+                <label for="idiomas-conocidos-familiar">Idiomas Conocidos (Familiar):</label>
+                <select id="idiomas-conocidos-familiar" name="idiomas-conocidos[]" multiple required>
+                    <option value="" disabled>Seleccione uno o más idiomas</option>
+                </select>
+            </div>
+        </fieldset>
 
-                    </select>
-                    <label for="idiomas-conocidos">Idiomas conocidos...</label>
-                    <select name="idiomas-conocidos" id="idiomas-conocidos" required>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                </div>
-                <div id="Tutor2">
-                    <label for="nombre-tutor2">Nombre del tutor...</label>
-                    <input type="text" name="nombre-tutor2" id="nombre-tutor2" required>
-                    <label for="apellidos-tutor1">Introduzca sus apellidos...</label>
-                    <input type="text" name="apellidos-tutor2" id="apellidos-tutor2" required>
-                    <label for="NIF">Introduzca su NIF...</label>
-                    <input type="text" name="NIF" id="NIF" required>
-                    <label for="profesion">Profesión...</label>
-                    <select name="profesion" id="profesion">
-
-                    </select>
-                    <label for="ciudad-nacimiento">Ciudad de nacimiento...</label>
-                    <select name="ciudad-nacimiento" id="ciudad-nacimiento">
-
-                    </select>
-                    <label for="lengua-materna">Lengua materna...</label>
-                    <select name="lengua-materna" id="lengua-materna" required>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                    <label for="idiomas-conocidos">Idiomas conocidos...</label>
-                    <select name="idiomas-conocidos" id="idiomas-conocidos" required>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                        <option value=""></option>
-                    </select>
-                </div>
-            </fieldset>
-        </div>
-        <div id="Direccion">
-            <label for="pais">Introduzca su país...</label>
-            <select name="pais" id="pais" required>
-
+        <!-- Dirección Actual -->
+        <fieldset>
+            <legend>Dirección Actual</legend>
+            <label for="pais">País:</label>
+            <select id="pais" name="pais" required>
+                <option value="" disabled selected>Seleccione un país</option>
             </select>
-            <label for="ciudad">Introduzca su ciudad...</label>
-            <select name="ciudad" id="ciudad" required>
 
+            <label for="ciudad">Ciudad:</label>
+            <select id="ciudad" name="ciudad" required>
+                <option value="" disabled selected>Seleccione una ciudad</option>
             </select>
-            <label for="poblacion">Introduzca su población...</label>
-            <select name="poblacion" id="poblacion" required>
 
+            <label for="poblacion">Población:</label>
+            <select id="poblacion" name="poblacion" required>
+                <option value="" disabled selected>Seleccione una población</option>
             </select>
-            <label for="direccion-completa">Dirección completa...</label>
-            <input type="text" name="direccion-completa" id="direccion-completa" required>
-            <label for="codigo-postal">Introduzca su código postal...</label>
-            <input type="number" name="codigo-postal" id="codigo-postal" required>
-        </div>
-        <div id="Datos-academicos">
-            <label for="colegio-procedencia">Colegio de procedencia...</label>
-            <input type="text" name="colegio-procedencia" id="colegio-procedencia" required>
-            <label for="nivel-estudios-alcanzado">Nivel de estudios alcanzados...</label>
-            <select name="nivel-estudios-alcanzado" id="nivel-estudios-alcanzado" required>
 
+            <label for="direccion-completa">Dirección Completa:</label>
+            <input type="text" id="direccion-completa" name="direccion-completa" required>
+
+            <label for="codigo-postal">Código Postal:</label>
+            <input type="text" id="codigo-postal" name="codigo-postal" required>
+        </fieldset>
+
+        <!-- Datos Académicos -->
+        <fieldset>
+            <legend>Datos Académicos</legend>
+            <label for="colegio-procedencia">Colegio de Procedencia:</label>
+            <input type="text" id="colegio-procedencia" name="colegio-procedencia" required>
+
+            <label for="nivel-estudios">Nivel de Estudios:</label>
+            <select id="nivel-estudios" name="nivel-estudios" required>
+                <option value="" disabled selected>Seleccione un nivel</option>
             </select>
-            <label for="idiomas-estudiados">Idiomas estuidos...</label>
-            <select name="idiomas-estudiaos" id="idiomas-estudiaos" required>
 
+            <label for="idiomas-estudiados">Idiomas Estudiados:</label>
+            <select id="idiomas-estudiados" name="idiomas-estudiados" multiple required>
+                <option value="" disabled>Seleccione uno o más idiomas</option>
             </select>
-            <label for="nivel-estudio-solicitado">Nivel de estudio solicitado...</label>
-            <select name="nivel-estudio-solicitado" id="nivel-estudio-solicitado" required>
 
+            <label for="nivel-estudios-solicitado">Nivel de Estudio Solicitado:</label>
+            <select id="nivel-estudio-solicitado" name="nivel-estudio-solicitado" required>
+                <option value="" disabled selected>Seleccione un nivel</option>
             </select>
-        </div>
-        <div id="Informacion-medica">
-            <label for="alergias">¿ Padece alguna alergia ?</label>
-            <select name="alergias" id="alergias">
+        </fieldset>
 
+        <!-- Información Médica -->
+        <fieldset>
+            <legend>Información Médica</legend>
+            <label for="alergias">Alergias:</label>
+            <select id="alergias" name="alergias[]" multiple>
+                <option value="" disabled>Seleccione una o más alergias</option>
             </select>
-            <label for="medicacion-actual">¿ Toma alguna medicación actual ?</label>
-            <input type="text" name="medicacion-actual" id="medicacion-actual">
-        </div>
 
-        </div>
+            <label for="medicacion-actual">Medicación Actual:</label>
+            <input type="text" id="medicacion-actual" name="medicacion-actual">
+        </fieldset>
+
+        <button type="submit">Enviar</button>
     </form>
 </body>
 

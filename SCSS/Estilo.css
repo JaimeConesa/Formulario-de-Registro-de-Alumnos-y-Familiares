@@ -1,0 +1,99 @@
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f5f7fa;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+  line-height: 1.6;
+}
+
+form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: #ffffff;
+  border: 1px solid #999999;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+fieldset {
+  border: 1px solid #999999;
+  border-radius: 5px;
+  padding: 15px;
+  margin-bottom: 20px;
+}
+fieldset legend {
+  padding: 0 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #4a90e2;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  box-sizing: border-box;
+}
+input:focus,
+select:focus {
+  outline: none;
+  border-color: #4a90e2;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+select[multiple] {
+  height: auto;
+  min-height: 100px;
+}
+
+button[type=submit] {
+  display: inline-block;
+  width: 100%;
+  background-color: #4a90e2;
+  color: #fff;
+  font-size: 1rem;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+button[type=submit]:hover {
+  background-color: #2275d7;
+}
+button[type=submit]:focus {
+  outline: none;
+  box-shadow: 0 0 5px rgba(74, 144, 226, 0.5);
+}
+
+@media (max-width: 768px) {
+  fieldset {
+    padding: 10px;
+  }
+  input,
+  select,
+  button[type=submit] {
+    font-size: 0.9rem;
+    padding: 8px;
+  }
+}
+input:invalid,
+select:invalid {
+  border-color: #e74c3c;
+}
+input:invalid:focus,
+select:invalid:focus {
+  box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}/*# sourceMappingURL=Estilo.css.map */
