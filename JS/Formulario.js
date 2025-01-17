@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", () => {
         direccion: "../JSON/direccion.json",
         estudios: "../JSON/estudios.json",
         profesiones: "../JSON/profesion.json",
-        idiomas: "../JSON/idiomas.json", // Nueva ruta para idiomas
+        idiomas: "../JSON/idiomas.json"
     };
 
     // Referencias a los selectores del HTML
@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const nivelEstudiosSolicitado = document.getElementById("nivel-estudio-solicitado");
     const alergias = document.getElementById("alergias");
 
-    // Nuevos selectores para idiomas
+    // selectores para idiomas
     const idiomasEstudiados = document.getElementById("idiomas-estudiados");
     const lenguaMaternaAlumno = document.getElementById("lengua-materna-alumno");
     const idiomasConocidosAlumno = document.getElementById("idiomas-conocidos-alumno");
@@ -31,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarYllenarSelect(rutasJSON.estudios, nivelEstudiosSolicitado, "estudios");
     cargarYllenarSelect(rutasJSON.alergias, alergias, "alergias", true);
 
-    // Nuevos llenados para idiomas
+    // llenados para idiomas
     cargarYllenarSelect(rutasJSON.idiomas, idiomasEstudiados, "idiomas", true);
     cargarYllenarSelect(rutasJSON.idiomas, lenguaMaternaAlumno, "idiomas");
     cargarYllenarSelect(rutasJSON.idiomas, idiomasConocidosAlumno, "idiomas", true);
@@ -102,6 +102,12 @@ function validarFormulario() {
         alert("El NIF no es válido.");
         valido = false;
     }
+    const nifFamiliar = document.getElementById("nif-familiar").value;
+    if (!validarNIF(nifFamiliar)) {
+        alert("El NIF no es válido.");
+        valido = false;
+    }
+
 
     // Validación de código postal
     const codigoPostal = document.getElementById("codigo-postal").value;
