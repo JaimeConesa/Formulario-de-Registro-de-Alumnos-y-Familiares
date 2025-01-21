@@ -12,6 +12,7 @@ document.addEventListener("DOMContentLoaded", () => {
     // Referencias a los selectores del HTML
     const profesion = document.getElementById("profesion");
     const profesion2 = document.getElementById("profesion-2");
+    const profesion3 = document.getElementById("profesion-3");
     const pais = document.getElementById("pais");
     const ciudad = document.getElementById("ciudad");
     const poblacion = document.getElementById("poblacion");
@@ -27,10 +28,13 @@ document.addEventListener("DOMContentLoaded", () => {
     const idiomasConocidosFamiliar = document.getElementById("idiomas-conocidos-familiar");
     const lenguaMaternaFamiliar2 = document.getElementById("lengua-materna-familiar-2");
     const idiomasConocidosFamiliar2 = document.getElementById("idiomas-conocidos-familiar-2");
+    const lenguaMaternaFamiliar3 = document.getElementById("lengua-materna-familiar-3");
+    const idiomasConocidosFamiliar3 = document.getElementById("idiomas-conocidos-familiar-3");
 
     // Llenar los selects específicos
     cargarYllenarSelect(rutasJSON.profesiones, profesion, "profesiones");
     cargarYllenarSelect(rutasJSON.profesiones, profesion2, "profesiones");
+    cargarYllenarSelect(rutasJSON.profesiones, profesion3, "profesiones");
     cargarYllenarSelect(rutasJSON.estudios, nivelEstudios, "estudios");
     cargarYllenarSelect(rutasJSON.estudios, nivelEstudiosSolicitado, "estudios");
     cargarYllenarSelect(rutasJSON.alergias, alergias, "alergias", true);
@@ -43,6 +47,8 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarYllenarSelect(rutasJSON.idiomas, idiomasConocidosFamiliar, "idiomas", true);
     cargarYllenarSelect(rutasJSON.idiomas, lenguaMaternaFamiliar2, "idiomas");
     cargarYllenarSelect(rutasJSON.idiomas, idiomasConocidosFamiliar2, "idiomas", true);
+    cargarYllenarSelect(rutasJSON.idiomas, lenguaMaternaFamiliar3, "idiomas");
+    cargarYllenarSelect(rutasJSON.idiomas, idiomasConocidosFamiliar3, "idiomas", true);
 
     // Llenar automáticamente todos los selects de ciudades con la clase "ciudad-nacimiento"
     document.querySelectorAll(".ciudad-nacimiento").forEach((select) => {
@@ -120,6 +126,12 @@ function validarFormulario() {
         alert("El NIF del segundo familiar no es válido.");
         valido = false;
     }
+        // Validación para el segundo familiar
+        const nifFamiliar3 = document.getElementById("nif-familiar-3").value;
+        if (nifFamiliar3 && !validarNIF(nifFamiliar3)) {
+            alert("El NIF del segundo familiar no es válido.");
+            valido = false;
+        }
 
     // Validación de código postal
     const codigoPostal = document.getElementById("codigo-postal").value;
