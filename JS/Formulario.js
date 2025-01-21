@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Referencias a los selectores del HTML
     const profesion = document.getElementById("profesion");
+    const profesion2 = document.getElementById("profesion-2");
     const pais = document.getElementById("pais");
     const ciudad = document.getElementById("ciudad");
     const poblacion = document.getElementById("poblacion");
@@ -24,9 +25,12 @@ document.addEventListener("DOMContentLoaded", () => {
     const idiomasConocidosAlumno = document.getElementById("idiomas-conocidos-alumno");
     const lenguaMaternaFamiliar = document.getElementById("lengua-materna-familiar");
     const idiomasConocidosFamiliar = document.getElementById("idiomas-conocidos-familiar");
+    const lenguaMaternaFamiliar2 = document.getElementById("lengua-materna-familiar-2");
+    const idiomasConocidosFamiliar2 = document.getElementById("idiomas-conocidos-familiar-2");
 
     // Llenar los selects específicos
     cargarYllenarSelect(rutasJSON.profesiones, profesion, "profesiones");
+    cargarYllenarSelect(rutasJSON.profesiones, profesion2, "profesiones");
     cargarYllenarSelect(rutasJSON.estudios, nivelEstudios, "estudios");
     cargarYllenarSelect(rutasJSON.estudios, nivelEstudiosSolicitado, "estudios");
     cargarYllenarSelect(rutasJSON.alergias, alergias, "alergias", true);
@@ -37,6 +41,8 @@ document.addEventListener("DOMContentLoaded", () => {
     cargarYllenarSelect(rutasJSON.idiomas, idiomasConocidosAlumno, "idiomas", true);
     cargarYllenarSelect(rutasJSON.idiomas, lenguaMaternaFamiliar, "idiomas");
     cargarYllenarSelect(rutasJSON.idiomas, idiomasConocidosFamiliar, "idiomas", true);
+    cargarYllenarSelect(rutasJSON.idiomas, lenguaMaternaFamiliar2, "idiomas");
+    cargarYllenarSelect(rutasJSON.idiomas, idiomasConocidosFamiliar2, "idiomas", true);
 
     // Llenar automáticamente todos los selects de ciudades con la clase "ciudad-nacimiento"
     document.querySelectorAll(".ciudad-nacimiento").forEach((select) => {
@@ -105,6 +111,13 @@ function validarFormulario() {
     const nifFamiliar = document.getElementById("nif-familiar").value;
     if (!validarNIF(nifFamiliar)) {
         alert("El NIF no es válido.");
+        valido = false;
+    }
+
+    // Validación para el segundo familiar
+    const nifFamiliar2 = document.getElementById("nif-familiar-2").value;
+    if (nifFamiliar2 && !validarNIF(nifFamiliar2)) {
+        alert("El NIF del segundo familiar no es válido.");
         valido = false;
     }
 

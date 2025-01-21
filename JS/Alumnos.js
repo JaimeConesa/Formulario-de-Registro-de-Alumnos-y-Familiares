@@ -9,17 +9,19 @@ class Alumno {
      * @param {string} lenguaMaterna - La lengua materna del alumno.
      * @param {Array} idiomasConocidos - Idiomas conocidos por el alumno.
      * @param {Object} familiar - Información de un familiar del alumno.
+     * @param {Object} familiar2 - Información del segundo familiar del alumno.
      * @param {Object} direccion - Dirección del alumno.
      * @param {Object} datosAcademicos - Información académica del alumno.
      * @param {Object} infoMedica - Información médica del alumno.
      */
-    constructor(nombre, apellidos, nif, lenguaMaterna, idiomasConocidos, familiar, direccion, datosAcademicos, infoMedica) {
+    constructor(nombre, apellidos, nif, lenguaMaterna, idiomasConocidos, familiar, familiar2, direccion, datosAcademicos, infoMedica) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.nif = nif;
         this.lenguaMaterna = lenguaMaterna;
         this.idiomasConocidos = idiomasConocidos;
         this.familiar = familiar;
+        this.familiar2 = familiar2;  // Ahora 'familiar2' está correctamente definido
         this.direccion = direccion;
         this.datosAcademicos = datosAcademicos;
         this.infoMedica = infoMedica;
@@ -42,6 +44,7 @@ class AlumnoBuilder {
         this.lenguaMaterna = null;
         this.idiomasConocidos = []; // Inicializado como un array vacío
         this.familiar = null;
+        this.familiar2 = null;
         this.direccion = null;
         this.datosAcademicos = null;
         this.infoMedica = null;
@@ -77,6 +80,10 @@ class AlumnoBuilder {
         this.familiar = familiar;
         return this;
     }
+    setFamiliar2(familiar2) {
+        this.familiar2 = familiar2;
+        return this;
+    }
 
     setDireccion(direccion) {
         this.direccion = direccion;
@@ -106,6 +113,7 @@ class AlumnoBuilder {
             this.lenguaMaterna,
             this.idiomasConocidos,
             this.familiar,
+            this.familiar2,
             this.direccion,
             this.datosAcademicos,
             this.infoMedica
@@ -146,6 +154,17 @@ document.addEventListener("DOMContentLoaded", () => {
                 lenguaMaterna: document.getElementById("lengua-materna-familiar").value,
                 idiomasConocidos: Array.from(
                     document.getElementById("idiomas-conocidos-familiar").selectedOptions
+                ).map((opt) => opt.value),
+            })
+            .setFamiliar2({
+                nombre: document.getElementById("nombre-familiar-2").value,
+                apellidos: document.getElementById("apellidos-familiar-2").value,
+                nif: document.getElementById("nif-familiar-2").value,
+                profesion: document.getElementById("profesion-2").value,
+                ciudadNacimiento: document.querySelector(".ciudad-nacimiento").value,
+                lenguaMaterna: document.getElementById("lengua-materna-familiar-2").value,
+                idiomasConocidos: Array.from(
+                    document.getElementById("idiomas-conocidos-familiar-2").selectedOptions
                 ).map((opt) => opt.value),
             })
             .setDireccion({
@@ -197,6 +216,15 @@ function mostrarResumen(alumno) {
         <p><strong>Ciudad de Nacimiento:</strong> ${alumno.familiar.ciudadNacimiento}</p>
         <p><strong>Lengua Materna:</strong> ${alumno.familiar.lenguaMaterna}</p>
         <p><strong>Idiomas Conocidos:</strong> ${alumno.familiar.idiomasConocidos.join(", ")}</p>
+        
+        <h4>Familiar 2</h4>
+        <p><strong>Nombre:</strong> ${alumno.familiar2.nombre}</p>
+        <p><strong>Apellidos:</strong> ${alumno.familiar2.apellidos}</p>
+        <p><strong>NIF:</strong> ${alumno.familiar2.nif}</p>
+        <p><strong>Profesión:</strong> ${alumno.familiar2.profesion}</p>
+        <p><strong>Ciudad de Nacimiento:</strong> ${alumno.familiar2.ciudadNacimiento}</p>
+        <p><strong>Lengua Materna:</strong> ${alumno.familiar2.lenguaMaterna}</p>
+        <p><strong>Idiomas Conocidos:</strong> ${alumno.familiar2.idiomasConocidos.join(", ")}</p>
         
         <h4>Dirección</h4>
         <p><strong>País:</strong> ${alumno.direccion.pais}</p>
